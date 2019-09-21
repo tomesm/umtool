@@ -1,7 +1,11 @@
+""" User Management tool Termonal interface """
+
+import sys
 import click
+from .osx import command
 
 @click.command()
-@click.argument('-U', required=True)
+@click.argument('--utility', required=True)
 
 
 # @click.option('--config_file', default='./auth.cfg',
@@ -13,6 +17,13 @@ import click
 # @click.option('--retweets', default=False, help='Include retweets?')
 
 
-def run(config_file, query, init_num, interval, retweets):
-    ''' Run terminal Twitter Wall '''
-    pass
+def run(utility):
+    ''' Run terminal User Management tool '''
+
+    if sys.platform.startswith('darwin'):
+        # OSX support
+        print("Platform supported")
+        command(utility)
+    elif sys.platform.startswith('linux'):
+        print("Platform not supported")
+
