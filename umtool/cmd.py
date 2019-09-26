@@ -10,7 +10,7 @@ from .umtool import Umtool
 @click.option('-U', '--utility', required=True)
 @click.option('-u', '--user', required=True)
 @click.option('-s', '--shell', default='/usr/bin/false')
-@click.option('-G', '--group', required=True)
+@click.option('-G', '--group', default='staff')
 
 def run(password, utility, user, shell, group):
     ''' Run terminal User Management tool '''

@@ -75,7 +75,25 @@ class OSX:
         """
         Deletes user
         """
+        self.delete_from_groups()
+
         userdel = 'dscl . -delete /Users/{}'.format(self.user)
-        command = 'echo {} | sudo -S {}'.format(self.password, userdel)
-        call(command, shell=True)
+        self.osx_call(userdel)
+
+    def delete_from_groups(self):
+        """
+        Deletes user from his groups
+        """
+        out = check_output(['groups', '{}'.format(self.user)], shell=True)
+        groups = out.decode('UTF-8').strip('\n').split(' ')
+
+        for group in groups:
+            cmd = 'dseditgroup -o edit -d {} -t user {}'.format(self.user, group)
+            self.osx_call(cmd)
+
+
+
+
+
+
 
