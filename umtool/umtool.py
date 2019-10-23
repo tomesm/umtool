@@ -13,5 +13,4 @@ class Umtool:
 
     def execute(self):
         """ Executes commands based on platform """
-
         self.handler.execute()
