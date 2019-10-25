@@ -1,7 +1,6 @@
 from subprocess import call
 from subprocess import check_output
 
-
 def find_group_id() -> str:
     """
     Finds primay group ID and returns as string
@@ -26,7 +25,7 @@ def find_user_id() -> str:
 class OSX:
     """ Class for executing OSX utilities commands """
 
-    def __init__(self, utility, password, user, shell, group):
+    def __init__(self, utility, password, user, shell='/usr/bin/false', group='staff'):
         """
         Class constructor
         """
