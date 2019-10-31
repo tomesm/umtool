@@ -6,6 +6,7 @@ import subprocess
 from umtool import OSX
 
 def get_password():
+
     config = configparser.ConfigParser()
     config.read("test_conf.cfg")
     return config['test']['password']
@@ -14,7 +15,7 @@ def get_password():
 def get_users():
     cmd = 'dscl . -list /Users'
     out = subprocess.check_output([cmd], shell=True)
-    res = out.decode('UTF-8').strip('\n').split(' ')
+    res = out.decode('UTF-8').split('\n')
     return res[1]
 
 def extecute(cmd):
