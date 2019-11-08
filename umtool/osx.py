@@ -25,12 +25,12 @@ def find_user_id() -> str:
 class OSX:
     """ Class for executing OSX utilities commands """
 
-    def __init__(self, utility, password, user, shell='/usr/bin/false', group='staff'):
+    def __init__(self, utility, user, shell='/usr/bin/false', group='staff'):
         """
         Class constructor
         """
         self.utility = utility
-        self.password = password
+        # self.password = password
         self.user = user
         self.shell = shell
         self.group = group
@@ -53,7 +53,7 @@ class OSX:
         """
         Real execution of terminal command
         """
-        call('echo {} | sudo -S {}'.format(self.password, command), shell=True)
+        call('sudo -S {}'.format(command), shell=True)
 
 
     def call_useradd(self):

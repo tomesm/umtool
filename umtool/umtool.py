@@ -5,9 +5,9 @@ from .osx import OSX
 
 class Umtool:
     """ User management controller class """
-    def __init__(self, utility, password, user, shell, group):
+    def __init__(self, utility, user, shell, group):
         if sys.platform.startswith('darwin'):
-            self.handler = OSX(utility, password, user, shell, group)
+            self.handler = OSX(utility, user, shell, group)
         elif sys.platform.startswith('linux'):
             print("Platform not supported")
 
