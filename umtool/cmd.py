@@ -18,3 +18,4 @@ def run(utility, user, shell, group):
     #print(utility + ' ' + password + ' ' + user + ' ' + shell + ' ' + group)
     umtool = Umtool(utility, user, shell, group)
     umtool.execute()
+
